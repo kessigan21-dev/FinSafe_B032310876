@@ -3147,6 +3147,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnLogin
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3227,6 +3228,8 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id etPassword
+id etUsername
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3521,6 +3524,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAppTitle
 id unchecked
 id uniform
 id unlabeled
@@ -3658,6 +3662,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_login
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3794,6 +3799,10 @@ string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string login_btn_login
+string login_et_password_1234
+string login_et_username_std_or_prm
+string login_title_finsafe_banking
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular

@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.FinSafe" >
         <activity
+            android:name="my.edu.utem.finsafe.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name="my.edu.utem.finsafe.MainActivity"
             android:exported="true" >
             <intent-filter>
