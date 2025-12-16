@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "my.edu.utem.finsafe.app-mergeDebugResources-29:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "my.edu.utem.finsafe.app-mergeDebugResources-30:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/home/wan/.gradle/caches/8.13/transforms/9d07710f0fd9033a35fdc417ee3ddd99/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/home/wan/.gradle/caches/8.13/transforms/459f02c4a410ddb5edaa33ef9a67198d/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

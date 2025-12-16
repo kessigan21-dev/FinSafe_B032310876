@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "my.edu.utem.finsafe.app-mergeDebugResources-29:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "my.edu.utem.finsafe.app-mergeDebugResources-30:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "/home/wan/.gradle/caches/8.13/transforms/d82127aff2268f1f461c6d03757958cb/transformed/material-1.10.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "source": "/home/wan/.gradle/caches/8.13/transforms/3364cce5ee6ad8daa9db69fdb5b35000/transformed/material-1.10.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

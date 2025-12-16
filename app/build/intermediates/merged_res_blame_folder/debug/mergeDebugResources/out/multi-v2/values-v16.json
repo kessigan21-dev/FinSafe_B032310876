@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "my.edu.utem.finsafe.app-mergeDebugResources-29:/values-v16/values-v16.xml",
+            "outputFile": "my.edu.utem.finsafe.app-mergeDebugResources-30:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/home/wan/.gradle/caches/8.13/transforms/9d07710f0fd9033a35fdc417ee3ddd99/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
+                    "source": "/home/wan/.gradle/caches/8.13/transforms/b69f66aa4504f2a217522dd30c1c3bc0/transformed/core-1.10.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/home/wan/.gradle/caches/8.13/transforms/459f02c4a410ddb5edaa33ef9a67198d/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "/home/wan/.gradle/caches/8.13/transforms/ca95fa9eb81c3a71f05e660cdf2126c1/transformed/core-1.10.1/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]
