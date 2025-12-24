@@ -25,8 +25,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
         val currentItem = transactionList[position]
 
         // TODO 10: Bind data to Views
-        // holder.tvType.text = ...
-        // holder.tvAmount.text = ...
+
 
         // TODO 11: Logic
         // If amount < 0, set tvAmount text color to Color.RED
@@ -40,7 +39,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
         return transactionList.size
     }
 
-    class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvType: TextView = itemView.findViewById(R.id.tvType)
         val tvAmount: TextView = itemView.findViewById(R.id.tvAmount)
     }
