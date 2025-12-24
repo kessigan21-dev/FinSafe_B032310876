@@ -1,13 +1,18 @@
 package my.edu.utem.finsafe
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import my.edu.utem.finsafe.data.AppDatabase
+import my.edu.utem.finsafe.data.Transaction
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -16,10 +21,13 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var btnAddTransaction: Button
     private lateinit var btnLowBalanceAlert: Button // Hidden for standard users
     private lateinit var db: AppDatabase
+    private lateinit var transactionViewModel: TransactionViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+
+        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
 
         db = AppDatabase.getDatabase(this)
         recyclerView = findViewById(R.id.recyclerView)
@@ -42,6 +50,30 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // TODO 13: Inflate the menu resource (res/menu/main_menu.xml)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // TODO 14: Handle the Logout menu item click
+        return when (item.itemId) {
+            R.id.action_logout -> {
+                performLogout()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun performLogout() {
+        // TODO 15: Clear SharedPreferences (isLoggedIn = false)
+
+        // TODO 16: Navigate back to LoginActivity and finish() this activity
+
+    }
+
     private fun setupUserInterface() {
         // TODO 5: Retrieve "userType" from SharedPreferences
         // TODO 6: If user is "standard", hide btnLowBalanceAlert (View.GONE).
@@ -54,7 +86,6 @@ class DashboardActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         // Note: Logic to observe DB data and submit to adapter would typically go here
-        // For this test, you can assume a simple refresh list function is called
     }
 
     private fun saveTransaction(amount: Double, type: String) {
