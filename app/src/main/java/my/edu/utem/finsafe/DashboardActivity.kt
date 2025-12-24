@@ -27,6 +27,8 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        createNotificationChannel()
+
         transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
 
         db = AppDatabase.getDatabase(this)
@@ -98,5 +100,9 @@ class DashboardActivity : AppCompatActivity() {
         // TODO 9: Implement AlarmManager logic
         // Trigger a broadcast to AlarmReceiver after 10 seconds.
         Toast.makeText(this, "Alarm set for 10 seconds", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun createNotificationChannel() {
+
     }
 }
