@@ -1,18 +1,19 @@
 package my.edu.utem.finsafe
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var usernameInput: EditText
     private lateinit var passwordInput: EditText
     private lateinit var loginButton: Button
+    private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
         usernameInput = findViewById(R.id.etUsername)
         passwordInput = findViewById(R.id.etPassword)
         loginButton = findViewById(R.id.btnLogin)
+
+        prefs = getSharedPreferences("FinSafePrefs", MODE_PRIVATE)
 
         checkLoginStatus()
 
@@ -32,15 +35,34 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkLoginStatus() {
-        // TODO 1: Check SharedPreferences. If "isLoggedIn" is true, navigate directly to DashboardActivity
+        val isLoggedIn = prefs.getBoolean("isLoggedIn", false)
+        if (isLoggedIn) {
+            startActivity(Intent(this, DashboardActivity::class.java))
+            finish()
+        }
     }
 
     private fun performLogin(user: String, pass: String) {
-        // TODO 2: Implement logic
-        // Standard User -> User: "std", Pass: "1234"
-        // Premium User -> User: "prm", Pass: "1234"
+        when {
+            user == "std" && pass == "1234" -> {
+                saveLogin("standard")
+            }
+            user == "prm" && pass == "1234" -> {
+                saveLogin("premium")
+            }
+            else -> {
+                Toast.makeText(this, "Invalid login", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
-        // TODO 3: On success, save "isLoggedIn" boolean and "userType" string to SharedPreferences
-        // TODO 4: Navigate to DashboardActivity
+    private fun saveLogin(userType: String) {
+        prefs.edit()
+            .putBoolean("isLoggedIn", true)
+            .putString("userType", userType)
+            .apply()
+
+        startActivity(Intent(this, DashboardActivity::class.java))
+        finish()
     }
 }

@@ -1,46 +1,54 @@
 package my.edu.utem.finsafe
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import my.edu.utem.finsafe.data.Transaction
 
-class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
+class TransactionAdapter(
+    private val onLongClick: (Transaction) -> Unit
+) : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
 
     private var transactionList = listOf<Transaction>()
 
     fun setData(list: List<Transaction>) {
-        this.transactionList = list
+        transactionList = list
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_transaction, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_transaction, parent, false)
         return TransactionViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
-        val currentItem = transactionList[position]
+        val item = transactionList[position]
 
-        // TODO 10: Bind data to Views
+        holder.tvType.text = item.type
+        holder.tvAmount.text = item.amount.toString()
 
+        if (item.amount < 0) {
+            holder.tvAmount.setTextColor(Color.RED)
+        } else {
+            holder.tvAmount.setTextColor(Color.GREEN)
+        }
 
-        // TODO 11: Logic
-        // If amount < 0, set tvAmount text color to Color.RED
-        // If amount >= 0, set tvAmount text color to Color.GREEN
-
-        // TODO 12: Implement Long Click Listener
-        // On long press, show a Toast with "Transaction ID: [id]"
+        holder.itemView.setOnLongClickListener {
+            onLongClick(item) // Callback to delete
+            true
+        }
     }
 
-    override fun getItemCount(): Int {
-        return transactionList.size
-    }
+    override fun getItemCount(): Int = transactionList.size
 
     inner class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvType: TextView = itemView.findViewById(R.id.tvType)
         val tvAmount: TextView = itemView.findViewById(R.id.tvAmount)
     }
 }
+

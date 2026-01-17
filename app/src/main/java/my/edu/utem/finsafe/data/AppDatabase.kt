@@ -7,10 +7,12 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Transaction::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun transactionDao(): TransactionDao
 
     companion object {
-        @Volatile private var INSTANCE: AppDatabase? = null
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
@@ -18,7 +20,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "finsafe_db"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

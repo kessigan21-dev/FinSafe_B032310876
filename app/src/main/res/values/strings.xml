@@ -11,4 +11,5 @@
     <string name="dashboard_recent_transactions">Recent Transactions</string>
     <string name="dashboard_add_dummy_transaction">Add Dummy Transaction</string>
     <string name="dashboard_set_low_balance_alert">Set Low Balance Alert</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -49,6 +49,7 @@ dependencies {
     // Room Database
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.camera.camera2.pipe)
     ksp(libs.androidx.room.compiler)
 
     // Coroutines
